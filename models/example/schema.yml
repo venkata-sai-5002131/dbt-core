@@ -19,3 +19,37 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: output_customers
+    description: 'Selects customer and product details for orders with quantity >= 2'
+    columns:
+      - name: customer_id
+        description: 'ID of the customer who made the order'
+        tests:
+          - not_null
+        meta:
+          dbt_type: id
+      - name: product_id
+        description: 'ID of the product that was ordered'
+        tests:
+          - not_null
+        meta:
+          dbt_type: id
+      - name: product_name
+        description: 'Name of the product that was ordered'
+        tests:
+          - not_null
+        meta:
+          dbt_type: varchar(255)
+      - name: price
+        description: 'Price of the product that was ordered'
+        tests:
+          - not_null
+        meta:
+          dbt_type: numeric(10, 2)
+      - name: email
+        description: 'Email of the customer who made the order'
+        tests:
+          - not_null
+        meta:
+          dbt_type: varchar(255)
